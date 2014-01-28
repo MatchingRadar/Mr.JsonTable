@@ -6,3 +6,5 @@ MR.JsonTable
 This is my very first jquery plugin so be gentle!
 
 Please visit website for full details
+
+http://mrjsontable.azurewebsites.net/
