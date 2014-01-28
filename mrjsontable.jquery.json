@@ -1,0 +1,31 @@
+﻿{
+	"name": "mrjsontable",
+	"title": "Mr.JsonTable",
+	"description": "Mr.JsonTable",
+	"keywords": [
+		"JSON",
+		"table"
+	],
+	"version" : "1.0.0",
+	"author": {
+		"name": "Matching Radar",
+		"url": "https://github.com/MatchingRadar/Mr.JsonTable"
+	},
+	"maintainers": [
+		{
+			"name": "Adrian McGrath",
+			"email": "adrian@matchingradar.co.uk",
+			"url": "http://www.matchingradar.co.uk"
+		}
+	],
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/MatchingRadar/Mr.JsonTable/blob/master/LICENSE.md"
+		}
+	],
+	"bugs": "https://github.com/MatchingRadar/Mr.JsonTable/issues",
+	"dependencies": {
+		"jquery": ">=1.9"
+	}
+}
