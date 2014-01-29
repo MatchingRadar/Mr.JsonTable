@@ -1,11 +1,26 @@
-﻿(function ($) {
+(function ($) {
+
+    $.fn.mrjsontablecolumn = function (options) {
+        var thisSelector = this.selector;
+        var opt = $.extend({}, $.fn.column.defaults, options);
+        return opt;
+    };
+
+    $.fn.mrjsontablecolumn.defaults = {
+        heading: "Heading",
+        data: "json_field",
+        type: "string",
+        sortable: true,
+        starthidden: false
+    }
+
     $.fn.mrjsontable = function (options) {
 
         var thisSelector = this.selector;
 
         var opts = $.extend({}, $.fn.mrjsontable.defaults, options);
 
-        var $mrjsontableContainer = $("<div>").attr("data-so", "A").addClass("mrjt");
+        var $mrjsontableContainer = $("<div>", { "data-so": "A", "data-ps": opts.pageSize }).addClass("mrjt");
 
         var $visibleColumnsCBList = $("<div>").addClass("legend");
 
@@ -37,8 +52,14 @@
         $theadRow.appendTo($thead);
         $thead.appendTo($table);
         
+        var pagingNeeded = false;
         $.each(opts.data, function (index, item) {
             var $tr = $("<tr>").attr("data-i", index);
+
+            if (opts.pageSize <= index) {
+                $tr.hide();
+                pagingNeeded = true;
+            }
 
             $.each(opts.columns, function (c_index, c_item) {
 
@@ -56,11 +77,25 @@
         $mrjsontableContainer.append($visibleColumnsCBList);
         $mrjsontableContainer.append($table);
 
+
+        if (pagingNeeded) {
+            var $pager = $("<div>").addClass("paging");
+            for (var i = 0; i < Math.ceil(opts.data.length / opts.pageSize) ; i++) {
+                $("<a>", { "text": "Page " + (i + 1), "href": "#", "data-i": (i + 1), "class": "p-link" }).bind("click", opts.onPageClick).appendTo($pager);
+            }
+            $mrjsontableContainer.append($pager).addClass("paged");
+        }
+
+
         return this.append($mrjsontableContainer);
     };
     
     $.fn.mrjsontable.defaults = {
-        tableClass: "table",
+        cssClass: "table",
+        columns: [],
+        data: [],
+        pageSize: 10,
+
         onHiddenCBChange: function () {
             var $thisGrid = $(this).parents(".mrjt");
             var columIndex = $(this).attr("data-i");
@@ -72,6 +107,27 @@
                 $("td[data-i='" + columIndex + "']", $thisGrid).hide();
                 $("th[data-i='" + columIndex + "']", $thisGrid).hide();
             }
+        },
+        onPageClick: function () {
+            var $thisGrid = $(this).parents(".mrjt");
+
+            var pageSize = $thisGrid.attr("data-ps");
+            var page = $(this).attr("data-i");
+
+            $("tbody tr", $thisGrid).each(function (tr_index, tr_item) {
+                $(this).hide();
+
+                var pageStart = ((page - 1) * pageSize) + 1;
+                var pageEnd = page * pageSize;
+
+                console.log(pageStart, pageEnd);
+
+                if ((tr_index + 1) >= pageStart && (tr_index + 1) <= pageEnd) {
+                    $(this).show();
+                }
+            });
+
+            return false;
         },
         onSortClick: function () {
             var $thisGrid = $(this).parents(".mrjt");
@@ -139,6 +195,10 @@
                 td.detach();
                 
                 $("tbody", $thisGrid).append(td);
+            }
+
+            if ($thisGrid.hasClass("paged")) {
+                $('.p-link', $thisGrid).eq(0).click();
             }
 
             return false;
