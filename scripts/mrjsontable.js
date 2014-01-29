@@ -2,7 +2,7 @@
 
     $.fn.mrjsontablecolumn = function (options) {
         var thisSelector = this.selector;
-        var opt = $.extend({}, $.fn.column.defaults, options);
+        var opt = $.extend({}, $.fn.mrjsontablecolumn.defaults, options);
         return opt;
     };
 
@@ -119,8 +119,6 @@
 
                 var pageStart = ((page - 1) * pageSize) + 1;
                 var pageEnd = page * pageSize;
-
-                console.log(pageStart, pageEnd);
 
                 if ((tr_index + 1) >= pageStart && (tr_index + 1) <= pageEnd) {
                     $(this).show();
