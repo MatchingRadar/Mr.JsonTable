@@ -1,11 +1,14 @@
-﻿
-.mrjt .legend { border: 1px solid #DCDCDC; text-align: right; float: right; padding: 3px; border-radius: 5px;margin:10px 0px; }
+
+.mrjt .legend { border: 1px solid #DCDCDC; text-align: right; float: right; padding: 3px; border-radius: 5px; margin: 10px 0px; }
     .mrjt .legend label { margin-right: 10px; }
 
-.mrjt table { width: 100%; clear: both; margin:10px 0px;}
-    .mrjt table th { text-align: left; background:#EEE; padding:5px 10px;}
-    .mrjt table td { padding:5px 10px;border-bottom:1px solid #DCDCDC;}
+.mrjt table { width: 100%; clear: both; margin: 10px 0px; }
+    .mrjt table th { text-align: left; background: #EEE; padding: 5px 10px; }
+    .mrjt table td { padding: 5px 10px; border-bottom: 1px solid #DCDCDC; }
 
-.s-init { padding-right: 20px; background: url(../images/arrow-sortable.png) no-repeat center right; }
-.s-A { background: url(../images/arrow-up.png) no-repeat center right; }
-.s-D { background: url(../images/arrow-down.png) no-repeat center right; }
+.mrjt .s-init { padding-right: 20px; background: url(../images/arrow-sortable.png) no-repeat center right; }
+.mrjt .s-A { background: url(../images/arrow-up.png) no-repeat center right; }
+.mrjt .s-D { background: url(../images/arrow-down.png) no-repeat center right; }
+
+.mrjt .paging { border: 1px solid #DCDCDC; text-align: center; display: block; padding: 3px; margin: 0px 0px 10px; }
+    .mrjt .paging .p-link { padding:0px 5px;}
