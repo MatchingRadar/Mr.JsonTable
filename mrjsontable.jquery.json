@@ -1,7 +1,7 @@
 ﻿{
 	"name": "mrjsontable",
 	"title": "Mr.JsonTable",
-	"description": "A very simple, very small jquery plugin to create a HTML Table from JSON data. support sorting and show/hide columns",
+	"description": "A very simple, very small jquery plugin to create a HTML Table from JSON data, with paging sorting and hideable columns",
 	"keywords": [
 		"JSON",
 		"table"
