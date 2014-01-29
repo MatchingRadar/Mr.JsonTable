@@ -1,15 +1,15 @@
 ﻿{
 	"name": "mrjsontable",
 	"title": "Mr.JsonTable",
-	"description": "A very simple, very small jquery plugin to create a HTML Table from JSON data",
+	"description": "A very simple, very small jquery plugin to create a HTML Table from JSON data. support sorting and show/hide columns",
 	"keywords": [
 		"JSON",
 		"table"
 	],
-	"version" : "1.0.2",
+	"version" : "1.0.3",
 	"author": {
 		"name": "Matching Radar",
-		"url": "https://github.com/MatchingRadar/Mr.JsonTable"
+		"url": "http://www.matchingradar.co.uk"
 	},
 	"maintainers": [
 		{
@@ -27,5 +27,8 @@
 	"bugs": "https://github.com/MatchingRadar/Mr.JsonTable/issues",
 	"dependencies": {
 		"jquery": ">=1.9"
-	}
+	},
+	"demo": "http://mrjsontable.azurewebsites.net/",
+	"homepage": "http://mrjsontable.azurewebsites.net/",
+	"docs": "https://github.com/MatchingRadar/Mr.JsonTable"
 }
