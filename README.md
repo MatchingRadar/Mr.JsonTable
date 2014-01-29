@@ -1,7 +1,7 @@
 Mr.JsonTable
 ============
 MR.JsonTable
-(A very simple, very small jquery plugin: HTML Table from JSON data)
+(A very simple, very small jquery plugin: HTML Table from JSON data with paging sorting and hideable columns)
 
 This is my very first jquery plugin so be gentle!
 
